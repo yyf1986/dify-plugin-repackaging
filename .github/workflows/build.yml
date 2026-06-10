@@ -22,7 +22,7 @@ on:
 
 jobs:
   repackage:
-    runs-on: ubuntu-latest
+    runs-on: ${{ inputs.platform_arm == 'true' && 'ubuntu-latest-arm64' || 'ubuntu-latest' }}
     steps:
       - name: Print workflow inputs
         run: |
@@ -56,7 +56,6 @@ jobs:
         run: |
           PIP_MIRROR_URL=https://pypi.org/simple \
           ./plugin_repackaging.sh \
-          -p ${{ env.PIP_PLATFORM }} \
           -s ${{ env.PACKAGE_SUFFIX }} \
           market \
           "${{ github.event.inputs.plugin_author }}" \
