@@ -333,9 +333,9 @@ PY
 
 	mkdir -p ./wheels
 	echo "Downloading wheels to ./wheels/..."
-	${PIP_CMD} download ${PIP_PLATFORM} --prefer-binary -r requirements.txt -d ./wheels \
-	#${PIP_CMD} download --prefer-binary -r requirements.txt -d ./wheels \
-		--index-url ${PIP_MIRROR_URL} --trusted-host mirrors.aliyun.com
+	#${PIP_CMD} download ${PIP_PLATFORM} --prefer-binary -r requirements.txt -d ./wheels \
+	${PIP_CMD} download --prefer-binary -r requirements.txt -d ./wheels \
+		--index-url ${PIP_MIRROR_URL} --trusted-host mirrors.aliyun.com --only-binary=:all:
 	if [[ $? -ne 0 ]]; then
 		echo "✗ Error: Failed to download dependencies"
 		exit 1
