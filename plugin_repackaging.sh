@@ -360,6 +360,7 @@ PY
 		[ -f "$IGNORE_PATH" ] && sed -i ".bak" '/^wheels\//d' "${IGNORE_PATH}" && rm -f "${IGNORE_PATH}.bak"
 	fi
 	echo "✓ requirements.txt updated for offline mode"
+	cat requirements.txt
 
 	# ============================================
 	# Step 5: Package the plugin
