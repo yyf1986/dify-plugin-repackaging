@@ -22,6 +22,8 @@ if [[ "arm64" == "$ARCH_NAME" || "aarch64" == "$ARCH_NAME" ]]; then
 	CMD_NAME="dify-plugin-${OS_TYPE}-arm64"
 fi
 
+
+
 # Cross packaging / resolution controls
 PIP_PLATFORM=""
 RAW_PLATFORM=""    # raw value from -p, e.g. manylinux2014_x86_64
@@ -372,6 +374,8 @@ PY
 
 	cd ${CURR_DIR} || exit 1
 	chmod 755 ${CURR_DIR}/${CMD_NAME}
+
+	 ${CURR_DIR}/${CMD_NAME} version
 
 	OUTPUT_PACKAGE="${CURR_DIR}/${PACKAGE_NAME}-${PACKAGE_SUFFIX}.difypkg"
 	echo "Packaging: ${PACKAGE_NAME}"
